@@ -7,8 +7,8 @@ type Error struct {
 	Message   string `json:"message"`
 }
 
-func WrongPassword() Error {
-	return Error{
+func (*Error) WrongPassword() *Error {
+	return &Error{
 		ErrorCode: http.StatusForbidden,
 		Message:   "wrong password,attention: limit attempt",
 	}
